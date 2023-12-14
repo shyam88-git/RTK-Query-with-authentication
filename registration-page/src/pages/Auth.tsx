@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { useLoginUserMutation } from "../service/authApi";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { useAppDispatch } from "../redux/hooks";
+import { useAppDispatch } from "../app/hooks";
 import { setUser } from "../features/authSlice";
 
 const initialState = {
@@ -87,6 +87,7 @@ const Auth = () => {
     },
   ] = useLoginUserMutation();
 
+
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
@@ -119,19 +120,25 @@ const Auth = () => {
       navigate("/dashboard");
     } else if (isLoginError) {
       toast.error("Invalid username and password");
-      // Handle other error cases here
+      
     }
   }, [isLoginSuccess, isLoginError, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your login or registration logic here
+    
     console.log(formValue);
   };
 
   const toggleForm = () => {
     setShowRegister(!showRegister);
   };
+
+
+ 
+  
+  
+  
 
   return (
     <>

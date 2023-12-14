@@ -1,7 +1,7 @@
 
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import {store} from "./redux/store.ts";
+import {store} from "./app/store.ts";
 import { Provider } from 'react-redux';
 import './index.css'
 import {ThemeProvider} from 'styled-components';

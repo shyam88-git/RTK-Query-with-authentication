@@ -1,15 +1,13 @@
-import  { ReactNode } from "react";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../features/authSlice";
+import { ReactNode} from "react";
+
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }: { children: ReactNode }) => {
-  
-  const token = useSelector(selectAuth);
+  const token = JSON.parse(localStorage.getItem("user") || "");
 
   
+
   if (!token.token) {
-    
     return <Navigate to="/auth" />;
   } else {
     return <>{children}</>;

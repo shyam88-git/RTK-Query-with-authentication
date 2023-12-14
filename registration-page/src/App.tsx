@@ -3,7 +3,7 @@ import Auth from "./pages/Auth";
 
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./pages/Dashboard";
-import { useAppDispatch } from "./redux/hooks";
+import { useAppDispatch } from "./app/hooks";
 import { useEffect } from "react";
 import { setUser } from "./features/authSlice";
 import PrivateRoute from "./components/PrivateRoute";

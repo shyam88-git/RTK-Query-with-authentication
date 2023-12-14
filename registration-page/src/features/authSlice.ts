@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../redux/store";
+import {RootState} from '../app/store';
 
 export interface AuthState {
   email: string | null;
-
   token: string | null;
 }
 
@@ -20,22 +19,21 @@ const authSlice = createSlice({
       state,
       action: PayloadAction<{ email: string; token: string }>
     ) => {
+      const { email, token } = action.payload;
       localStorage.setItem(
         "user",
         JSON.stringify({
-          email: action.payload.email,
-          token: action.payload.token,
+          email,
+          token,
         })
       );
 
-      state.email = action.payload.email;
-      state.token = action.payload.token;
+      return { ...state, email, token }; 
     },
 
     logout: (state) => {
       localStorage.clear();
-      state.email = null;
-      state.token = null;
+      return { ...state, email: null, token: null };
     },
   },
 });

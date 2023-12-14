@@ -10,6 +10,7 @@ export const authApi = createApi({
         method: "post",
         body,
       }),
+      
     }),
 
     registerUser: builder.mutation({

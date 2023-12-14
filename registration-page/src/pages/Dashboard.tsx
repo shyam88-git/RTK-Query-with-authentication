@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { logout, selectAuth } from "../features/authSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -50,7 +50,7 @@ const Dashboard = () => {
   const handleLogout = () => {
     dispatch(logout());
     toast.success("User Logout Successfully");
-    navigate("/auth");
+    navigate("/");
   };
   return (
     <DashboardContainer>
